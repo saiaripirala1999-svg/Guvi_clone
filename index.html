@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forward Deployed AI Agent Engineering Programme</title>
+<meta name="description" content="Learn to build AI agents and take them from business problem to production. 10 modules, live classes, capstone project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mist:#f1f5ee; --leaf:#e1ebd8; --fern:#5b8a5f; --forest:#1f3a2e; --bark:#6b5b4b; --river:#86aeab; --ink:#22302a; --line:#cfdcc8;
+  --serif:'Fraunces',Georgia,serif; --sans:'Karla',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--mist:#14201a;--leaf:#1b2c23;--fern:#8dc08f;--forest:#dcebd5;--bark:#b9a78f;--river:#86aeab;--ink:#d8e4d3;--line:#2c4136}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:17px;padding-top:env(safe-area-inset-top,0px)}
+h1,h2,h3{font-family:var(--serif);color:var(--forest);font-weight:600;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--fern);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+.lead{max-width:60ch;color:var(--bark);margin-bottom:44px}
+
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--mist) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
+.brand{font-family:var(--serif);font-weight:600;color:var(--forest);text-decoration:none;font-size:19px}
+nav ul{display:flex;gap:26px;list-style:none;padding:0;font-size:15px}
+nav ul a{text-decoration:none;color:var(--bark)}
+nav ul a:hover{color:var(--forest)}
+.btn{display:inline-block;background:var(--forest);color:var(--mist);padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px;transition:background .2s}
+.btn:hover{background:var(--fern)}
+.btn.ghost{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
+.btn.ghost:hover{background:var(--leaf)}
+
+.hero{padding:96px 0 0;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(40px,7vw,76px);max-width:15ch;margin-bottom:22px;letter-spacing:-.02em}
+.hero p{max-width:52ch;font-size:19px;color:var(--bark);margin-bottom:34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hills{display:block;width:100%;height:auto;margin-top:56px}
+.rise{animation:rise 1.2s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;margin-top:0}
+.facts b{display:block;font-family:var(--serif);font-size:30px;color:var(--forest)}
+.facts span{color:var(--bark);font-size:15px}
+
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px}
+.who div{border-left:2px solid var(--river);padding-left:16px}
+.who h3{font-size:19px;margin-bottom:6px}
+.who p{font-size:15px;color:var(--bark)}
+
+.trail{background:var(--leaf)}
+ol.path{list-style:none;padding:0;margin:0;position:relative;max-width:760px}
+ol.path::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:var(--fern);opacity:.45}
+ol.path li{position:relative;padding:0 0 30px 52px}
+ol.path li:last-child{padding-bottom:0}
+ol.path .dot{position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--mist);border:2px solid var(--fern);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--forest)}
+ol.path h3{font-size:20px;margin-bottom:4px}
+ol.path p{font-size:15.5px;color:var(--bark);max-width:60ch}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
+.projects article{background:var(--leaf);border-radius:28px 28px 28px 6px;padding:34px}
+.projects h3{font-size:24px;margin-bottom:10px}
+.projects p{color:var(--bark);margin-bottom:14px}
+.projects small{color:var(--fern);font-weight:700;font-size:14px}
+
+.price{max-width:520px;border:1.5px solid var(--forest);border-radius:28px;padding:38px}
+.price s{color:var(--bark)}
+.price .now{font-family:var(--serif);font-size:48px;color:var(--forest);font-weight:600;display:block;line-height:1.1;margin:6px 0}
+.price ul{list-style:none;padding:0;margin:22px 0 28px}
+.price li{padding:6px 0 6px 26px;position:relative}
+.price li::before{content:"";position:absolute;left:2px;top:15px;width:10px;height:6px;border-left:2px solid var(--fern);border-bottom:2px solid var(--fern);transform:rotate(-45deg)}
+.note{font-size:14px;color:var(--bark);margin-top:16px}
+
+details{border-bottom:1px solid var(--line);padding:18px 0;max-width:760px}
+summary{cursor:pointer;font-family:var(--serif);font-size:19px;color:var(--forest);list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--fern);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--bark);max-width:62ch}
+
+.final{background:var(--forest);color:var(--mist);text-align:center}
+.final h2{color:var(--mist);max-width:20ch;margin:0 auto 14px}
+.final p{color:var(--leaf);margin-bottom:28px;opacity:.85}
+.final .btn{background:var(--mist);color:var(--forest)}
+.final .btn:hover{background:var(--leaf)}
+footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));font-size:14px;color:var(--bark);text-align:center}
+@media (max-width:720px){nav ul{display:none}section{padding:64px 0}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Forward Deployed</a>
+    <ul>
+      <li><a href="#audience">Who it’s for</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="#enroll">Enroll</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap rise">
+    <h1>Grow AI from idea to production.</h1>
+    <p>A live programme in AI agents, enterprise integrations, RAG and cloud deployment. You learn to take a real business problem all the way to a working solution.</p>
+    <div class="cta">
+      <a class="btn" href="#enroll">Reserve your seat</a>
+      <a class="btn ghost" href="#curriculum">See the curriculum</a>
+    </div>
+  </div>
+  <svg class="hills" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 C150 70 280 90 420 130 S700 190 860 110 S1100 60 1200 110 V220 H0Z" fill="#86aeab" opacity=".35"/>
+    <path d="M0 170 C170 110 320 130 480 165 S760 205 900 150 S1110 120 1200 160 V220 H0Z" fill="#5b8a5f" opacity=".55"/>
+    <path d="M0 200 C200 165 380 185 560 200 S900 215 1050 190 S1160 185 1200 195 V220 H0Z" fill="#1f3a2e"/>
+  </svg>
+</header>
+
+<div class="wrap">
+  <div class="facts">
+    <div><b>10</b><span>modules</span></div>
+    <div><b>70 hrs</b><span>live classes</span></div>
+    <div><b>8+</b><span>production-grade projects</span></div>
+    <div><b>1:1</b><span>mentorship</span></div>
+  </div>
+</div>
+
+<section id="audience">
+  <div class="wrap">
+    <h2>Made for people who already build.</h2>
+    <p class="lead">If you write code, move data or run cloud systems, this programme adds the agent and deployment skills that companies now ask for.</p>
+    <div class="who">
+      <div><h3>Software developers</h3><p>Build AI-powered applications that are ready for real users.</p></div>
+      <div><h3>AI/ML engineers</h3><p>Expand into agents, RAG, integrations and deployment.</p></div>
+      <div><h3>Data scientists</h3><p>Move models past experiments and into production.</p></div>
+      <div><h3>Analysts</h3><p>Create AI-driven workflows for business teams.</p></div>
+      <div><h3>DevOps and cloud engineers</h3><p>Work with AI infrastructure, deployment and automation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="trail" id="curriculum">
+  <div class="wrap">
+    <h2>Ten modules, one trail.</h2>
+    <p class="lead">Each module builds on the one before it, from understanding a customer’s problem to handing over a production system.</p>
+    <ol class="path">
+      <li><span class="dot">1</span><h3>FDE foundations and customer discovery</h3><p>Scope business problems, define success metrics and design practical solution architectures.</p></li>
+      <li><span class="dot">2</span><h3>Python for integration engineering</h3><p>Build reliable integrations with Python, FastAPI, webhooks, data validation and testing.</p></li>
+      <li><span class="dot">3</span><h3>Enterprise data integration and pipelines</h3><p>Advanced SQL, ETL/ELT, dbt, Airflow, Kafka and data quality practices.</p></li>
+      <li><span class="dot">4</span><h3>Identity, auth and API security</h3><p>OAuth 2.0, OIDC, SAML, SCIM, SSO, access control and secrets management.</p></li>
+      <li><span class="dot">5</span><h3>Cloud deployment in customer environments</h3><p>Docker, Terraform, CI/CD, IAM and managed LLM services.</p></li>
+      <li><span class="dot">6</span><h3>RAG and enterprise knowledge systems</h3><p>Document ingestion, embeddings, vector databases, hybrid search and re-ranking.</p></li>
+      <li><span class="dot">7</span><h3>AI agents, tool use and MCP</h3><p>Tool-using agents with LangGraph, memory, human approval and multi-agent patterns.</p></li>
+      <li><span class="dot">8</span><h3>Evals, observability and cost engineering</h3><p>Evaluation sets, regression testing, guardrails, monitoring and cost optimisation.</p></li>
+      <li><span class="dot">9</span><h3>Compliance, responsible AI and production readiness</h3><p>Security, privacy, data residency, incident response and responsible AI practice.</p></li>
+      <li><span class="dot">10</span><h3>Stakeholder communication and PoC-to-production</h3><p>Technical demos, pilot design, rollout, handover and FDE interview preparation.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>You will build and deploy.</h2>
+    <p class="lead">Two anchor projects tie the modules together.</p>
+    <div class="projects">
+      <article>
+        <h3>A production-ready AI agent</h3>
+        <p>An agent that uses tools, makes decisions, runs workflows and works with human oversight. Examples: a customer support agent or a data analysis agent.</p>
+        <small>LLMs, tool integration, evals, deployment, monitoring</small>
+      </article>
+      <article>
+        <h3>An end-to-end FDE deployment</h3>
+        <p>Take a real problem from discovery and integration through AI deployment to production handover.</p>
+        <small>APIs, data pipelines, RAG, MCP, cloud, security</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="trail" id="pricing">
+  <div class="wrap">
+    <h2>Simple pricing.</h2>
+    <p class="lead">One programme fee, with monthly payment available.</p>
+    <div class="price">
+      <s>₹1,24,999 standard fee</s>
+      <span class="now">₹99,999</span>
+      <div>or ₹11,585 a month for 12 months</div>
+      <ul>
+        <li>Live expert-led classes</li>
+        <li>8+ hands-on projects</li>
+        <li>End-to-end FDE capstone</li>
+        <li>Career and interview preparation</li>
+        <li>Programme certificate</li>
+      </ul>
+      <a class="btn" href="#enroll">Reserve your seat</a>
+      <p class="note">Ask about interest, fees and refund terms on the monthly plan before you enrol.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions, answered.</h2>
+    <p class="lead">Short answers to what people ask most.</p>
+    <details><summary>What is Forward Deployed AI Agent Engineering?</summary><p>It combines forward deployed engineering with AI agent engineering. You learn to understand business problems, build AI solutions, connect them to enterprise systems and take them to production.</p></details>
+    <details><summary>Will I learn to build AI agents?</summary><p>Yes. You cover tool calling, memory, LangGraph, human approval, MCP, multi-agent patterns and common failure modes.</p></details>
+    <details><summary>Which tools will I use?</summary><p>Python, FastAPI, SQL, Docker, Terraform, AWS, Azure and GCP, LangGraph, Make and n8n, vector databases, dbt, Airflow and modern LLMs.</p></details>
+    <details><summary>Is there interview preparation?</summary><p>Yes. It covers case-style discovery rounds, live coding and integrations, AI system design and behavioural questions.</p></details>
+    <details><summary>What is the capstone?</summary><p>An end-to-end deployment that brings together discovery, integration, AI engineering, deployment, evaluation and production readiness.</p></details>
+  </div>
+</section>
+
+<section class="final" id="enroll">
+  <div class="wrap">
+    <h2>Ready to take AI into the real world?</h2>
+    <p>Seats are limited. Register on the official programme page to book your free call.</p>
+    <a class="btn" href="https://www.guvi.in/zen-class/fde-programme/" target="_blank" rel="noopener">Register on HCL GUVI</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">An independent page based on the <a href="https://www.guvi.in/zen-class/fde-programme/" target="_blank" rel="noopener">HCL GUVI FDE programme</a>. Check the official page for current details and fees.</div>
+</footer>
+
+</body>
+</html>
